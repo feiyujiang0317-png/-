@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="侨批家书内页">
+  <rect width="800" height="560" fill="#F5E6C8"/>
+  <rect x="24" y="24" width="752" height="512" fill="#F8EDD4" stroke="#C4B08A" stroke-width="1"/>
+  <text x="120" y="100" font-family="Noto Serif SC, KaiTi, serif" font-size="28" fill="#1A1A1A">父亲大人膝下：</text>
+  <text x="120" y="160" font-family="Noto Serif SC, KaiTi, serif" font-size="22" fill="#2C2C2C">儿在马尼拉一切平安，勿念。</text>
+  <text x="120" y="210" font-family="Noto Serif SC, KaiTi, serif" font-size="22" fill="#2C2C2C">今附大洋伍拾，聊补家用。</text>
+  <path d="M120 280 Q200 300 280 275" fill="none" stroke="#1A1A1A" stroke-width="2" opacity="0.6"/>
+  <text x="520" y="420" font-family="serif" font-size="18" fill="#3D2E1F">不孝男 阿福 叩</text>
+  <text x="520" y="450" font-family="serif" font-size="14" fill="#6B5344">民国二十一年腊月</text>
+</svg>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="description" content="侨批文化数字展馆 — 纸短情长济天下">
+  <title>侨批·纸短情长 — 交互式数字展馆</title>
+
+  <!-- Google Fonts: Noto Serif SC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/transitions.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- SVG Filters (hidden, for ink bleed effect) -->
+  <svg id="svg-filters" aria-hidden="true">
+    <filter id="ink-bleed">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="paper-noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply"/>
+    </filter>
+  </svg>
+
+  <!-- Main Application -->
+  <div id="app">
+    <!-- Scrollable exhibition container -->
+    <div id="exhibition-container">
+      <!-- Zone content rendered here -->
+      <div id="zone-renderer"></div>
+    </div>
+
+    <!-- Paper texture overlay -->
+    <div id="paper-overlay"></div>
+
+  <!-- Fixed UI elements (outside scrolling container) -->
+
+  <!-- Cursor flashlight effect -->
+  <div id="cursor-light"></div>
+
+  <!-- Page indicator -->
+    <div id="page-indicator">01 / 12</div>
+
+    <!-- Navigation button -->
+    <button id="nav-button">☰ 导航</button>
+
+    <!-- Quick nav overlay -->
+    <div id="quick-nav"></div>
+
+    <!-- Popup overlay -->
+    <div id="popup-overlay"></div>
+
+  </div>
+
+  <!-- JavaScript (load order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

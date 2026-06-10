@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-label="泛黄侨批、南洋邮戳、批馆印章与汇款单">
+  <defs>
+    <filter id="paperGrain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/>
+      <feColorMatrix type="saturate" values="0" in="n"/>
+      <feBlend in="SourceGraphic" mode="multiply" opacity="0.12"/>
+    </filter>
+    <linearGradient id="agedPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8EDD4"/>
+      <stop offset="45%" stop-color="#E8D4A8"/>
+      <stop offset="100%" stop-color="#C9B07A"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#FFF8E8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2C1810" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="680" fill="#1a1008"/>
+  <ellipse cx="450" cy="320" rx="380" ry="280" fill="url(#spot)"/>
+  <g transform="rotate(-6 720 520)" opacity="0.92">
+    <rect x="520" y="380" width="320" height="220" rx="4" fill="#EDE0C4" stroke="#9A8468" stroke-width="1.2"/>
+    <text x="540" y="418" font-family="Noto Serif SC, serif" font-size="22" fill="#5C4030" font-weight="700">汇款通知书</text>
+    <line x1="535" y1="430" x2="820" y2="430" stroke="#8B7355" stroke-width="1"/>
+    <text x="545" y="462" font-family="serif" font-size="15" fill="#3D2E1F">收款人：陈氏家属</text>
+    <text x="545" y="488" font-family="serif" font-size="15" fill="#3D2E1F">银额：壹佰伍拾元整</text>
+    <text x="545" y="514" font-family="serif" font-size="14" fill="#6B5344">附言：家用，勿念</text>
+    <rect x="680" y="530" width="120" height="48" fill="none" stroke="#A52A2A" stroke-width="2" stroke-dasharray="4 2" opacity="0.7"/>
+    <text x="695" y="560" font-family="serif" font-size="13" fill="#8B0000">批局核讫</text>
+  </g>
+  <g transform="rotate(2 280 300)" filter="url(#paperGrain)">
+    <rect x="80" y="60" width="480" height="520" rx="6" fill="url(#agedPaper)" stroke="#A89068" stroke-width="1.5"/>
+    <ellipse cx="200" cy="480" rx="90" ry="50" fill="#C4A86A" opacity="0.25"/>
+    <ellipse cx="420" cy="120" rx="60" ry="35" fill="#B89860" opacity="0.18"/>
+    <text x="400" y="120" font-family="Noto Serif SC, KaiTi, serif" font-size="26" fill="#2C1810">父亲</text>
+    <text x="400" y="168" font-family="Noto Serif SC, KaiTi, serif" font-size="26" fill="#2C1810">大人</text>
+    <text x="360" y="120" font-family="Noto Serif SC, KaiTi, serif" font-size="24" fill="#2C1810">膝下</text>
+    <text x="320" y="120" font-family="Noto Serif SC, KaiTi, serif" font-size="24" fill="#2C1810">儿在</text>
+    <text x="320" y="168" font-family="Noto Serif SC, KaiTi, serif" font-size="24" fill="#2C1810">南洋</text>
+    <text x="280" y="120" font-family="Noto Serif SC, KaiTi, serif" font-size="24" fill="#2C1810">平安</text>
+    <text x="240" y="120" font-family="Noto Serif SC, KaiTi, serif" font-size="24" fill="#2C1810">勿念</text>
+    <path d="M150 180 Q200 200 240 175" fill="none" stroke="#1A1A1A" stroke-width="2.2" opacity="0.75" stroke-linecap="round"/>
+    <path d="M130 320 Q175 340 210 310" fill="none" stroke="#2C2C2C" stroke-width="1.8" opacity="0.6" stroke-linecap="round"/>
+    <path d="M160 420 Q210 445 255 415" fill="none" stroke="#1A1A1A" stroke-width="2.5" opacity="0.8" stroke-linecap="round"/>
+    <text x="130" y="520" font-family="serif" font-size="16" fill="#4A3728" opacity="0.85">癸卯年腊月 · 暹罗寄</text>
+  </g>
+  <g transform="translate(520 95) rotate(-12)">
+    <rect x="0" y="0" width="118" height="142" fill="#E8DCC8" stroke="#6B5A45" stroke-width="2"/>
+    <rect x="8" y="8" width="102" height="90" fill="#D4C4A8"/>
+    <text x="59" y="42" text-anchor="middle" font-family="serif" font-size="14" fill="#3D2817" font-weight="700">暹罗</text>
+    <text x="59" y="62" text-anchor="middle" font-family="serif" font-size="11" fill="#5C4030">SIAM</text>
+    <circle cx="59" cy="88" r="28" fill="none" stroke="#8B4513" stroke-width="3" opacity="0.85"/>
+    <text x="59" y="84" text-anchor="middle" font-family="serif" font-size="10" fill="#6B3410">南洋</text>
+    <text x="59" y="98" text-anchor="middle" font-family="serif" font-size="9" fill="#6B3410">邮政</text>
+    <text x="59" y="128" text-anchor="middle" font-family="serif" font-size="11" fill="#A52A2A" font-weight="700">丙辰·腊月</text>
+  </g>
+  <g transform="translate(600 200)">
+    <circle cx="55" cy="55" r="52" fill="none" stroke="#B22222" stroke-width="5" opacity="0.92"/>
+    <circle cx="55" cy="55" r="38" fill="none" stroke="#8B0000" stroke-width="2" opacity="0.7"/>
+    <text x="55" y="42" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#8B0000" font-weight="700">汕头</text>
+    <text x="55" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="18" fill="#A52A2A" font-weight="900">批馆</text>
+    <text x="55" y="82" text-anchor="middle" font-family="serif" font-size="11" fill="#8B0000">核印</text>
+  </g>
+  <g transform="translate(100 520)">
+    <rect x="0" y="0" width="96" height="36" rx="2" fill="#2C1810" opacity="0.55"/>
+    <text x="48" y="24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="18" fill="#D4A574" letter-spacing="6">侨批</text>
+  </g>
+</svg>

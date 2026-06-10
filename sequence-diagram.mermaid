@@ -1,0 +1,91 @@
+sequenceDiagram
+    participant User as 用户（点击/键盘）
+    participant Nav as NavigationController
+    participant App as App（渲染引擎）
+    participant State as STATE 对象
+    participant Data as EXHIBITION_DATA
+    participant Effects as EffectsManager
+    participant DOM as 页面 DOM
+
+    Note over User,DOM: ===== 页面初始化流程 =====
+    App->>Data: 加载 EXHIBITION_DATA
+    App->>DOM: 创建容器结构（渲染器、纹理层、页码、导航）
+    App->>Effects: initPaperOverlay()
+    Effects->>DOM: 叠加纸张纹理层
+    App->>State: STATE.currentZone = 1
+    App->>App: renderZone(1)
+    App->>Data: 读取 zones[0] 数据
+    App->>DOM: 渲染封面页（暗色渐亮，5s）
+    App->>Nav: 绑定键盘事件
+    Nav->>DOM: addEventListener('keydown')
+    App->>Nav: 启动自动播放
+
+    Note over User,DOM: ===== 翻页流程 =====
+    User->>Nav: 点击画面右半侧
+    Nav->>State: isTransitioning = true
+    Nav->>DOM: 当前页 transitionOut（fade 1.2s）
+    DOM-->>Nav: transitionend 事件
+    Nav->>App: renderZone(currentZone + 1)
+    App->>Data: 读取下一个展区数据
+    App->>DOM: 渲染新页面（初始 opacity: 0）
+    App->>DOM: 新页 transitionIn（fade 1.2s）
+    App->>Effects: 应用展区特效
+    DOM-->>App: transitionend 事件
+    App->>State: currentZone = newZone
+    App->>State: isTransitioning = false
+    Nav->>DOM: 更新页码指示器 "3/12"
+    Nav->>Nav: 重置自动播放计时器
+
+    Note over User,DOM: ===== ② 拆封交互 =====
+    User->>Nav: 点击信封
+    Nav->>State: zoneStates[2].isOpened = true
+    Nav->>DOM: 信封打开动画（CSS transition, 3s）
+    DOM-->>Nav: transitionend
+    Nav->>DOM: 信纸滑出（1.5s）
+    DOM-->>Nav: transitionend
+    Nav->>DOM: "见字如面" 浮现（2s）
+    DOM-->>Nav: transitionend
+    Nav->>State: zoneStates[2].isRevealed = true
+    Nav->>Nav: 2s后自动 nextPage()
+
+    Note over User,DOM: ===== ③ 大字+批注浮现 =====
+    App->>DOM: 渲染「難」字
+    Nav->>Nav: 等待6秒
+    Nav->>DOM: 批注文字浮现动画
+    User->>Nav: 点击翻页
+
+    Note over User,DOM: ===== ④ 时间轴滚动 =====
+    App->>DOM: 渲染时间轴长卷
+    Nav->>DOM: 自动横向滚动（translateX, 8s）
+    DOM-->>Nav: transitionend
+    User->>Nav: 点击某个时间节点
+    Nav->>DOM: 弹出节点详情弹窗
+    User->>Nav: 点击弹窗外关闭
+
+    Note over User,DOM: ===== ⑩ 星点选择 =====
+    App->>DOM: 渲染星空 + 5颗星
+    User->>Nav: 点击某颗星
+    Nav->>DOM: 该星放大（scale 动画, 0.4s）
+    Nav->>DOM: 其余星缩小退居背景
+    Nav->>DOM: 故事卡片弹出
+    User->>Nav: 点击下一颗星
+    Nav->>DOM: 当前卡片缩小，新星放大
+    User->>Nav: 点击"继续"按钮
+    Nav->>App: nextPage()
+
+    Note over User,DOM: ===== ⑫ 尾页+结束 =====
+    App->>DOM: 渲染致谢页面
+    Nav->>Nav: 等待15秒
+    Nav->>DOM: 画面渐暗至黑屏（3s）
+
+    Note over User,DOM: ===== 快速导航 =====
+    User->>Nav: 点击导航按钮「☰」
+    Nav->>DOM: 弹出快速导航面板（3×4网格）
+    User->>Nav: 点击第7格
+    Nav->>DOM: 关闭导航面板
+    Nav->>State: isTransitioning = true
+    Nav->>App: renderZone(7)
+    App->>Data: 读取 zones[6] 数据
+    App->>DOM: 渲染烽火侨批页
+    Nav->>State: isTransitioning = false
+    Nav->>DOM: 更新页码 "7/12"

@@ -1,0 +1,992 @@
+/* ================================================
+   pages.css — 侨批数字展馆 · 12个展区样式
+   ================================================ */
+
+/* ===================================================================
+   Layout Types — 通用布局样式
+   =================================================================== */
+
+/* ===== Layout: Cover / Ending ===== */
+.layout-cover,
+.layout-ending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===== Layout: Envelope ===== */
+.layout-envelope {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Layout: Character ===== */
+.layout-character {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Zone 3 — 垂直居中 */
+.zone-3,
+.zone-difficulty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Zone 3 — 页面主标题 */
+.zone-3 .page-main-title,
+.zone-difficulty .page-main-title {
+  text-align: center;
+  width: 100%;
+  padding-top: 40px;
+  margin-bottom: 30px;
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(18px, 2.8vw, 36px);
+  font-weight: 900;
+  color: #2a2a2a;
+  letter-spacing: 0.2em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.3s forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+
+/* 暗色主题下标题改为浅色 */
+.theme-paper-ink .page-main-title {
+  color: rgba(220, 190, 140, 0.9);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ===== Layout: Timeline ===== */
+.layout-timeline {
+  position: relative;
+}
+
+/* ===== Layout: Cards ===== */
+.layout-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Layout: Split ===== */
+.layout-split {
+  position: relative;
+}
+
+/* ===== Layout: Data ===== */
+.layout-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Layout: Stars ===== */
+.layout-stars {
+  position: relative;
+}
+
+/* ===== Layout: Splash ===== */
+.layout-splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===================================================================
+   Zone 1 — 封面页 (theme-dark-warm)
+   =================================================================== */
+.theme-dark-warm {
+  background: linear-gradient(160deg, #1A1209 0%, #2C1810 40%, #1A1209 100%);
+  color: var(--color-gold-light);
+}
+
+.zone-1 {
+  /* 封面页面板 */
+}
+
+.zone-1 .cover-content-card {
+  animation: fadeIn 1s ease 0.3s both;
+}
+
+.zone-1 .cover-cta-btn {
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 0.2em;
+}
+
+.zone-1 .cover-headline {
+  animation: fadeIn 0.8s ease 0.5s both;
+}
+
+.zone-1 .cover-headline-suffix {
+  animation: fadeIn 0.8s ease 0.7s both;
+}
+
+.zone-1 .cover-subtitle {
+  animation: fadeIn 0.8s ease 0.9s both;
+}
+
+/* 移动端封面适配 */
+@media (max-width: 768px) {
+  .zone-1 .cover-content-card {
+    width: 95%;
+  }
+
+  .zone-1 .cover-cta-btn {
+    padding: 12px 28px;
+  }
+
+  .zone-1 .cultural-tags {
+    gap: 8px;
+  }
+}
+
+/* ===================================================================
+   Zone 2 — 启封仪式 (theme-old-paper)
+   =================================================================== */
+.theme-old-paper {
+  background: linear-gradient(160deg, #E8D5B0 0%, #D4C5A9 50%, #C4B494 100%);
+  color: var(--color-ink);
+}
+
+.zone-2 {
+  overflow: hidden;
+}
+
+.zone-2 .envelope-wrapper {
+  animation: pageReveal 1.2s ease 0.3s both;
+}
+
+.zone-2 .envelope-card {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.zone-2 .envelope-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+  border-color: rgba(220, 190, 140, 0.25) !important;
+}
+
+.zone-2 .envelope-title {
+  color: rgba(220, 190, 140, 0.95) !important;
+  text-shadow: 0 0 20px rgba(220, 190, 140, 0.3), 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+
+.zone-2 .envelope-cta {
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 0.2em;
+  color: rgba(220, 190, 140, 0.95) !important;
+  background: linear-gradient(135deg, rgba(220, 190, 140, 0.1) 0%, transparent 50%), rgba(20, 20, 30, 0.7) !important;
+  border: 1px solid rgba(220, 190, 140, 0.25) !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .zone-2 .envelope-wrapper {
+    top: 35%;
+    width: 95%;
+  }
+
+  .zone-2 .envelope-card {
+    max-width: 90%;
+  }
+
+  .zone-2 .archive-meta {
+    gap: 10px;
+  }
+
+  .zone-2 .envelope-cta {
+    padding: 12px 28px;
+  }
+}
+
+/* ===================================================================
+   Zone 3 — 「難」字 (theme-paper-ink)
+   深色调纸张纹理 + ink-bleed 血墨「難」字 + 海浪/烟雾动态
+   =================================================================== */
+.theme-paper-ink {
+  background: linear-gradient(160deg, #1a1a1a 0%, #252525 30%, #2c2c2c 60%, #1e1e1e 100%);
+  color: var(--color-gold-light);
+}
+
+/* 深色纸张纹理叠加 */
+.theme-paper-ink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 海浪/烟雾背景动画伪元素 */
+.zone-3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  background:
+    radial-gradient(ellipse 80% 40% at 20% 80%, rgba(100,140,160,0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 30% at 75% 60%, rgba(80,120,140,0.25) 0%, transparent 60%);
+  animation: seaMistDrift 12s ease-in-out infinite;
+}
+
+/* 缓慢海浪/烟雾飘动 */
+@keyframes seaMistDrift {
+  0%   { transform: translate(0, 0) scale(1);    opacity: 0.04; }
+  25%  { transform: translate(15px, -8px) scale(1.03); opacity: 0.07; }
+  50%  { transform: translate(5px, -15px) scale(0.98); opacity: 0.05; }
+  75%  { transform: translate(-10px, -5px) scale(1.02); opacity: 0.06; }
+  100% { transform: translate(0, 0) scale(1);    opacity: 0.04; }
+}
+
+/* 「難」字图片 */
+.zone-3 .nan-character-display {
+  background-image: url('images/image3.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: characterBreath 4s ease-in-out infinite;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.7));
+  user-select: none;
+}
+
+@keyframes characterBreath {
+  0%, 100% { opacity: 0.92; }
+  50% { opacity: 1; }
+}
+
+/* 正文文字浅灰色 */
+.zone-3 .diff-section p,
+.zone-3 .diff-section .section-text {
+  color: #ccc;
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.9;
+}
+
+/* 引用文字暗红色 + 左侧粗边框 */
+.zone-3 blockquote.diff-quote {
+  color: #8b0000;
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(18px, 1.6vw, 26px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border-left: 5px solid #8b0000;
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: rgba(139, 0, 0, 0.04);
+  line-height: 1.6;
+}
+
+/* 引用来源小字 */
+.zone-3 blockquote.diff-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(10px, 0.7vw, 13px);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+/* 三大苦难板块通用 */
+.zone-3 .diff-section {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+/* 视差层 — 供 effects.js 操控 */
+.zone-3 .parallax-layer-bg  { will-change: transform; }
+.zone-3 .parallax-layer-mid { will-change: transform; }
+.zone-3 .parallax-layer-fg  { will-change: transform; }
+
+/* ===================================================================
+   Zone 4 — 历史时间轴 (theme-ink-scroll)
+   =================================================================== */
+.theme-ink-scroll {
+  background:
+    rgba(0, 0, 0, 0.75),
+    linear-gradient(180deg, #1a1510 0%, #0f0d0a 100%);
+  color: #fff;
+}
+
+/* Reuses .theme-ink-scroll */
+
+/* 左侧五组四字装饰文字 — 背景装饰，朦胧低透明 */
+.theme-ink-scroll .zone-decor-text {
+  color: #fff;
+  opacity: 0.2;
+  font-size: clamp(22px, 2.5vw, 38px);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  pointer-events: none;
+  text-shadow: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* 时间轴标题 */
+.zone-4 .timeline-title,
+[data-zone-id="4"] .timeline-title {
+  color: rgba(245, 230, 200, 0.95) !important;
+  text-shadow: 0 0 10px rgba(245, 230, 200, 0.5) !important;
+  letter-spacing: 0.25em;
+  font-weight: 900;
+}
+
+/* 副标题 */
+.zone-4 .timeline-subtitle,
+[data-zone-id="4"] .timeline-subtitle {
+  color: rgba(245, 230, 200, 0.75) !important;
+  text-shadow: 0 0 6px rgba(245, 230, 200, 0.4) !important;
+}
+
+/* 时间轴轨道 */
+.zone-4 .tl-track,
+[data-zone-id="4"] .tl-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+
+/* 节点槽位 */
+.zone-4 .tl-slot,
+[data-zone-id="4"] .tl-slot {
+  flex: 1;
+  position: relative;
+}
+
+/* 圆圈 */
+.zone-4 .tl-circle,
+[data-zone-id="4"] .tl-circle {
+  color: rgba(245, 230, 200, 0.95) !important;
+  text-shadow: 0 0 10px rgba(245, 230, 200, 0.6) !important;
+  font-family: 'Noto Serif SC', serif !important;
+  font-weight: 900 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 年份 */
+.zone-4 .tl-year,
+[data-zone-id="4"] .tl-year {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  color: rgba(245, 230, 200, 0.95) !important;
+  text-shadow: 0 0 10px rgba(245, 230, 200, 0.5) !important;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: transform 0.3s ease !important;
+}
+
+/* 说明文字 */
+.zone-4 .tl-desc,
+[data-zone-id="4"] .tl-desc {
+  color: rgba(245, 230, 200, 0.85) !important;
+  text-shadow: 0 0 4px rgba(245, 230, 200, 0.3);
+  line-height: 1.7;
+  max-width: 160px;
+}
+
+/* 信封卡片 — 轻微投影，与暗背景形成区分 */
+.zone-4 .envelope-card,
+[data-zone-id="4"] .envelope-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 信件下方标注文字 — 白色发光 */
+.zone-4 .envelope-caption,
+[data-zone-id="4"] .envelope-caption {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+/* 信件标题 */
+.zone-4 .envelope-title,
+[data-zone-id="4"] .envelope-title {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+/* 信件档案元信息 */
+.zone-4 .archive-meta,
+[data-zone-id="4"] .archive-meta {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.zone-4 .archive-meta span,
+[data-zone-id="4"] .archive-meta span {
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 移动端响应式 */
+@media (max-width: 768px) {
+  .zone-4 .tl-slot,
+  [data-zone-id="4"] .tl-slot {
+    flex: 1;
+  }
+
+  .zone-4 .tl-circle,
+  [data-zone-id="4"] .tl-circle {
+    width: 55px !important;
+    height: 55px !important;
+    font-size: 18px !important;
+  }
+
+  .zone-4 .tl-year,
+  [data-zone-id="4"] .tl-year {
+    font-size: 16px !important;
+  }
+}
+
+/* ===================================================================
+   Zone 5 — 何为侨批 (深色主题)
+   =================================================================== */
+
+/* 移除旧的浅色主题覆盖 */
+.overlay[style*="background: rgba(255, 255, 255, 0.92)"] + .nav-dots,
+/* Zone 5 — 何为侨批 卡片样式 */
+.zone-5 .cards-container,
+[data-zone-id="5"] .cards-container {
+  /* 垂直居中卡片容器 */
+}
+
+.zone-5 .card:nth-child(1),
+[data-zone-id="5"] .card:nth-child(1) {
+  transition-delay: 0s;
+}
+.zone-5 .card:nth-child(2),
+[data-zone-id="5"] .card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.zone-5 .card:nth-child(3),
+[data-zone-id="5"] .card:nth-child(3) {
+  transition-delay: 0.8s;
+}
+
+/* 通用卡片样式 */
+.zone-5 .card,
+[data-zone-id="5"] .card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(30, 30, 35, 0.7);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(220, 190, 140, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.zone-5 .card:hover,
+[data-zone-id="5"] .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-color: rgba(220, 190, 140, 0.25);
+}
+
+.zone-5 .icon,
+[data-zone-id="5"] .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #a83c32;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(180, 60, 40, 0.35);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: bold;
+}
+
+.zone-5 .card:hover .icon,
+[data-zone-id="5"] .card:hover .icon {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(180, 60, 40, 0.4);
+}
+
+.zone-5 .text-group,
+[data-zone-id="5"] .text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.zone-5 .title,
+[data-zone-id="5"] .title {
+  font-size: 1.1rem;
+  color: #e0e0e5;
+  font-weight: bold;
+  font-family: 'Noto Serif SC', serif;
+  white-space: nowrap;
+}
+
+.zone-5 .desc,
+[data-zone-id="5"] .desc {
+  font-size: 0.9rem;
+  color: #b0b0b8;
+  font-family: 'Noto Serif SC', serif;
+  white-space: nowrap;
+}
+
+.zone-5 .arrow,
+[data-zone-id="5"] .arrow {
+  color: #b0b0b8;
+  margin-left: 1rem;
+  font-size: 1rem;
+  transition: transform 0.35s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* 展开区域文字 */
+.zone-5 .card-expanded p,
+[data-zone-id="5"] .card-expanded p {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(12px, 0.85vw, 14px);
+  color: rgba(200, 200, 210, 0.85);
+  line-height: 1.9;
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top: 1px dashed rgba(220, 190, 140, 0.2);
+}
+
+/* Zone 5 标题强制横排 */
+.zone-5 h2,
+[data-zone-id="5"] h2 {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
+
+/* Zone 5 所有文字强制横排 */
+.zone-5,
+.zone-5 *,
+[data-zone-id="5"],
+[data-zone-id="5"] * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+}
+
+/* ===================================================================
+   Zone 6 — 下南洋 (theme-ocean)
+   =================================================================== */
+.theme-ocean {
+  background: linear-gradient(180deg, #1A2A3A 0%, #2C4A5A 50%, #3A5A6A 100%);
+  color: var(--color-gold-light);
+}
+
+.zone-6 .ship-image {
+  filter: sepia(0.2) contrast(1.1) brightness(0.9);
+  transition: filter 0.5s ease;
+}
+
+.zone-6 .ship-image:hover {
+  filter: sepia(0) contrast(1.2) brightness(1);
+}
+
+/* Ocean wave CSS decoration */
+.zone-6::after {
+  content: '';
+  position: absolute;
+  bottom: 45%;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.03) 20px,
+      rgba(255, 255, 255, 0.03) 40px
+    );
+  z-index: 2;
+  pointer-events: none;
+  animation: waveMove 4s ease-in-out infinite;
+}
+
+/* ===================================================================
+   Zone 7 — 华侨与抗战 (theme-war) — 深色主题（#1a1a1d + 遮罩）
+   =================================================================== */
+.theme-war {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 6, 3, 0.5) 0%,
+    rgba(8, 6, 3, 0.75) 40%,
+    rgba(8, 6, 3, 0.88) 100%
+  );
+  color: #e0e0e5;
+  opacity: 0;
+  animation: fadeInText 0.8s ease forwards;
+}
+
+/* Zone 7 h2 标题基础样式（JS 接管完整定位，此处兜底） */
+.theme-war h2 {
+  font-family: 'Noto Serif SC', 'STKaiti', serif;
+  font-weight: 900;
+  font-size: clamp(22px, 2.2vw, 40px);
+  color: #e6d5b8;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 20px rgba(230, 213, 184, 0.2), 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Zone 7 噪声纹理层 */
+.theme-war::before,
+.zone-7::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===================================================================
+   Zone 8 — 经济血脉 (theme-data) — 深色主题（与第1、3、7页一致）
+   =================================================================== */
+.theme-data {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 6, 3, 0.5) 0%,
+    rgba(8, 6, 3, 0.75) 40%,
+    rgba(8, 6, 3, 0.88) 100%
+  );
+  color: #e0e0e5;
+}
+
+/* 深色噪声纹理层（叠加在遮罩上方，轻微质感） */
+.theme-data::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ===================================================================
+   Zone 9 — 统一战线 (theme-united-front)
+   =================================================================== */
+.theme-united-front {
+  background: linear-gradient(135deg, #F5E6C8 0%, #EDD9B0 50%, #F0E0C0 100%);
+  color: var(--color-ink);
+}
+
+/* Red banner decoration at top */
+.zone-9::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--color-vermilion-deep, #8B0000) 20%,
+    var(--color-vermilion-deep, #8B0000) 80%,
+    transparent
+  );
+  z-index: 5;
+  animation: drawLine 1.5s ease both;
+}
+
+/* ===================================================================
+   Zone 10 — 人物星河 (theme-night) — 深邃宇宙深色主题
+   =================================================================== */
+.theme-night {
+  background: linear-gradient(
+    to bottom,
+    #050508 0%,
+    #08091a 40%,
+    #0a0b1e 70%,
+    #050508 100%
+  );
+  color: #e0e0e5;
+}
+
+/* 宇宙噪声纹理 */
+.theme-night::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 大亮星 */
+.big-star {
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 213, 184, 0.9) 0%, rgba(201, 169, 110, 0.2) 30%, transparent 70%);
+  animation: starPulseBig 2.5s ease-in-out infinite !important;
+}
+
+@keyframes starPulseBig {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* 人物星圆圈 hover（CSS 兜底，JS 更精确） */
+.zone-10 .star-figure:hover {
+  transform: translate(-50%, -50%) scale(1.1) !important;
+  z-index: 20;
+}
+
+.zone-10 .star-figure:active {
+  transform: translate(-50%, -50%) scale(0.95) !important;
+}
+
+/* ===================================================================
+   Zone 11 — 当代意义 (theme-bright)
+   =================================================================== */
+.theme-bright {
+  background: linear-gradient(170deg, #FFF8ED 0%, #F5E6C8 30%, #F0D9B5 60%, #E8D5B0 100%);
+  color: var(--color-ink);
+}
+
+.zone-11 {
+  /* 入场改为纯 opacity 淡入，避免 filter 触发 GPU 合成层 bug */
+  animation: fadeIn 1.5s ease both;
+}
+
+/* ===================================================================
+   Zone 12 — 尾页 (theme-ending)
+   =================================================================== */
+.theme-ending {
+  background: radial-gradient(ellipse at 50% 40%, rgba(212,165,116,0.1) 0%, rgba(44,24,16,0.4) 40%, rgba(44,24,16,0.95) 100%), #2C1810;
+  color: var(--color-gold-light);
+}
+
+.zone-12 .credit-line {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.zone-12 .credit-line:nth-child(1) { animation-delay: 0.5s; }
+.zone-12 .credit-line:nth-child(2) { animation-delay: 1.0s; }
+.zone-12 .credit-line:nth-child(3) { animation-delay: 1.5s; }
+.zone-12 .credit-line:nth-child(4) { animation-delay: 2.0s; }
+.zone-12 .credit-line:nth-child(5) { animation-delay: 2.5s; }
+.zone-12 .credit-line:nth-child(6) { animation-delay: 3.0s; }
+.zone-12 .credit-line:nth-child(7) { animation-delay: 3.5s; }
+.zone-12 .credit-line:nth-child(8) { animation-delay: 4.0s; }
+.zone-12 .credit-line:nth-child(9) { animation-delay: 4.5s; }
+.zone-12 .credit-line:nth-child(10) { animation-delay: 5.0s; }
+
+/* ===================================================================
+   Print / Fullscreen
+   =================================================================== */
+@media (display-mode: fullscreen) {
+  #exhibition-container {
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+  }
+}
+
+/* ===================================================================
+   移动端展区适配 (≤ 768px)
+   =================================================================== */
+@media (max-width: 768px) {
+  /* Zone 1 封面 — 缩小油灯图片 */
+  .zone-1 .zone-page,
+  [data-zone-id="1"] {
+    /* flex 居中已经够用 */
+  }
+
+  /* Zone 2 信封 — 加大触控区域 */
+  .layout-envelope .envelope-container {
+    width: 88%;
+    max-width: none;
+  }
+
+  /* Zone 3 難字 — 缩小字体 */
+  .zone-3 .nan-character-display,
+  [data-zone-id="3"] .nan-character-display {
+    font-size: clamp(80px, 30vw, 200px) !important;
+  }
+
+  /* Zone 4 时间轴 — 移动端适配 */
+  .zone-4 .tl-slot,
+  [data-zone-id="4"] .tl-slot {
+    flex: 1;
+  }
+
+  .zone-4 .tl-circle,
+  [data-zone-id="4"] .tl-circle {
+    width: 55px !important;
+    height: 55px !important;
+    font-size: 18px !important;
+  }
+
+  .zone-4 .tl-year,
+  [data-zone-id="4"] .tl-year {
+    font-size: 16px !important;
+  }
+
+  /* Zone 5 卡片响应式 - 深色主题 */
+  [data-zone-id="5"] .card-item {
+    padding: 14px 20px;
+    gap: 18px;
+    background: rgba(20, 20, 30, 0.65) !important;
+    border-color: rgba(220, 190, 140, 0.12) !important;
+  }
+
+  [data-zone-id="5"] .card-item h3 {
+    color: rgba(220, 190, 140, 0.95) !important;
+  }
+
+  [data-zone-id="5"] .card-item p {
+    color: rgba(200, 200, 210, 0.8) !important;
+  }
+
+  /* Zone 6 下南洋 — 上下分屏保持 */
+  [data-zone-id="6"] .ship-image {
+    width: 90%;
+    max-width: none;
+  }
+
+  /* Zone 7 烽火 — 左右分屏改为上下 */
+  [data-zone-id="7"] [style*="width: 50%"] {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5% 6% !important;
+  }
+
+  [data-zone-id="7"] [style*="left: 0"] {
+    order: 0;
+    padding-top: 10% !important;
+  }
+
+  [data-zone-id="7"] [style*="right: 0"] {
+    order: 1;
+    padding-bottom: 10% !important;
+  }
+
+  /* Zone 8 数据 — 单列 */
+  [data-zone-id="8"] [style*="grid-template-columns: repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    top: 18% !important;
+    bottom: 4% !important;
+  }
+
+  /* Zone 9 统一战线 — 左右改上下 */
+  [data-zone-id="9"] [style*="width: 50%"] {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 5% 6% !important;
+  }
+
+  [data-zone-id="9"] [style*="left: 0"] {
+    order: 0;
+    padding-top: 12% !important;
+  }
+
+  [data-zone-id="9"] [style*="right: 0"] {
+    order: 1;
+    padding-bottom: 8% !important;
+  }
+
+  /* Zone 10 人物星河 — 移动端缩小 */
+  .zone-10 .star-figure,
+  [data-zone-id="10"] .star-figure {
+    transform: translate(-50%, -50%) scale(0.7) !important;
+  }
+
+  [data-zone-id="10"] .star-figure:hover {
+    transform: translate(-50%, -50%) scale(0.85) !important;
+  }
+
+  [data-zone-id="10"] .star-orb {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+  }
+
+  /* Zone 11 当代意义 — 缩小引用块 */
+  [data-zone-id="11"] blockquote {
+    max-width: 85% !important;
+    padding: 12px 16px !important;
+  }
+}
+
+/* 小屏手机 (≤ 480px) */
+@media (max-width: 480px) {
+  /* Zone 3 難字 */
+  [data-zone-id="3"] .nan-character-display {
+    font-size: clamp(60px, 25vw, 150px) !important;
+  }
+
+  /* Zone 4 时间轴 — 小屏更小 */
+  [data-zone-id="4"] .tl-circle {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 16px !important;
+  }
+
+  [data-zone-id="4"] .tl-year {
+    font-size: 14px !important;
+  }
+
+  /* Zone 10 人物更小 */
+  [data-zone-id="10"] .star-figure {
+    transform: translate(-50%, -50%) scale(0.55) !important;
+  }
+
+  [data-zone-id="10"] .star-figure:hover {
+    transform: translate(-50%, -50%) scale(0.7) !important;
+  }
+
+  [data-zone-id="10"] .star-orb {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 15px !important;
+  }
+
+  /* Zone 8 数据点更紧凑 */
+  [data-zone-id="8"] [style*="padding: 20px 24px"] {
+    padding: 14px 16px !important;
+  }
+}

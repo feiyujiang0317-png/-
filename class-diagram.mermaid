@@ -1,0 +1,189 @@
+classDiagram
+    %% ========== 数据层 ==========
+    class EXHIBITION_DATA {
+        +String version
+        +int totalZones
+        +String author
+        +Object meta
+        +ZoneItem[] zones
+    }
+
+    class ZoneItem {
+        +int id
+        +String slug
+        +String title
+        +String subtitle
+        +String layoutType
+        +String theme
+        +Object content
+        +String[] images
+        +String transitionIn
+        +String transitionOut
+        +int minStaySeconds
+        +bool autoAdvance
+        +Hotspot[] hotspots
+    }
+
+    class Hotspot {
+        +String region
+        +String label
+        +String popupContent
+    }
+
+    class ContentCover {
+        +String headline
+        +String subtitle
+        +String footer
+        +String topLeftLabel
+        +String backgroundType
+        +String centerImage
+        +bool showEnterHint
+        +String enterHintText
+    }
+
+    class ContentEnvelope {
+        +String envelopeImage
+        +String letterPaperImage
+        +String revealText
+        +String revealTextImage
+        +String description
+        +AnimationStep[] animationSequence
+    }
+
+    class ContentCharacter {
+        +String mainCharacter
+        +String characterImage
+        +String source
+        +String annotation
+        +String annotationPosition
+        +String backgroundTexture
+        +int showAnnotationDelay
+    }
+
+    class ContentTimeline {
+        +String scrollImage
+        +int autoScrollDuration
+        +TimelineNode[] nodes
+    }
+
+    class ContentCards {
+        +CardItem[] cards
+        +int staggerDelay
+    }
+
+    class ContentSplit {
+        +String splitMode
+        +Object topContent
+        +Object bottomContent
+        +String decorativeBorder
+        +String extraOverlay
+    }
+
+    class ContentData {
+        +String title
+        +DataPoint[] dataPoints
+        +String backgroundUrl
+        +String dataChartImage
+        +bool flowAnimation
+    }
+
+    class ContentStars {
+        +String background
+        +String title
+        +FigureItem[] figures
+    }
+
+    class ContentSplash {
+        +String title
+        +String body
+        +String quote
+        +String backgroundOverlay
+        +String flowElement
+        +String decorativeImage
+        +Object externalLink
+    }
+
+    %% ========== 状态层 ==========
+    class STATE {
+        +int currentZone
+        +bool isTransitioning
+        +Timer autoPlayTimer
+        +bool[] hasVisited
+        +Object zoneStates
+    }
+
+    class ZoneStateEnvelope {
+        +bool isOpened
+        +bool isRevealed
+    }
+
+    class ZoneStateStars {
+        +String[] viewedFigures
+        +String activeFigure
+    }
+
+    %% ========== 控制层 ==========
+    class NavigationController {
+        +nextPage()
+        +prevPage()
+        +jumpTo(int zoneId)
+        +handleKeydown(Event e)
+        +handleClick(Event e)
+        +startAutoPlay()
+        +resetAutoPlay()
+        +stopAutoPlay()
+        +toggleQuickNav()
+        +renderQuickNav()
+        +updatePageIndicator(int zoneId)
+        +showEvidencePopup(Object content)
+    }
+
+    class EffectsManager {
+        +initPaperOverlay()
+        +createLanternGlow(DOMElement container)
+        +fadeInElement(DOMElement el, int duration)
+        +staggerElements(DOMElement[] elements, int delay)
+        +inkBleedEffect(DOMElement el)
+    }
+
+    class App {
+        +init()
+        +renderZone(int zoneId)
+        +renderCover(ZoneItem zone)
+        +renderEnvelope(ZoneItem zone)
+        +renderCharacter(ZoneItem zone)
+        +renderTimeline(ZoneItem zone)
+        +renderCards(ZoneItem zone)
+        +renderSplitScreen(ZoneItem zone)
+        +renderDataVisual(ZoneItem zone)
+        +renderStars(ZoneItem zone)
+        +renderSplash(ZoneItem zone)
+        +destroyZone()
+    }
+
+    %% ========== 关系 ==========
+    EXHIBITION_DATA "1" --> "*" ZoneItem : 包含
+    ZoneItem "1" --> "*" Hotspot : 可包含多个热点
+    ZoneItem "1" --> "1" ContentCover : layoutType=cover
+    ZoneItem "1" --> "1" ContentEnvelope : layoutType=envelope
+    ZoneItem "1" --> "1" ContentCharacter : layoutType=character
+    ZoneItem "1" --> "1" ContentTimeline : layoutType=timeline
+    ZoneItem "1" --> "1" ContentCards : layoutType=cards
+    ZoneItem "1" --> "1" ContentSplit : layoutType=split
+    ZoneItem "1" --> "1" ContentData : layoutType=data
+    ZoneItem "1" --> "1" ContentStars : layoutType=stars
+    ZoneItem "1" --> "1" ContentSplash : layoutType=splash
+
+    STATE "1" --> "1" ZoneStateEnvelope : zoneStates[2]
+    STATE "1" --> "1" ZoneStateStars : zoneStates[10]
+
+    App --> EXHIBITION_DATA : 读取
+    App --> STATE : 读写
+    App --> NavigationController : 调用翻页
+    App --> EffectsManager : 调用特效
+
+    NavigationController --> STATE : 读写
+    NavigationController --> App : 调用 renderZone()
+    NavigationController --> EffectsManager : 调用转场
+
+    EffectsManager --> STATE : 读取状态

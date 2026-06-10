@@ -1,0 +1,337 @@
+/* ================================================
+   transitions.css — 侨批数字展馆 · 转场动画
+   ================================================ */
+
+/* ===== Fade In / Fade Out ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease both;
+}
+
+.fade-out {
+  animation: fadeOut 1.2s ease both;
+}
+
+/* ===== Slow Fade (for first transition) ===== */
+@keyframes slowFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.slow-fade-in {
+  animation: slowFadeIn 1.5s ease both;
+}
+
+/* ===== Slide Left In (for timeline) ===== */
+@keyframes slideLeftIn {
+  0% { transform: translateX(30px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideLeftOut {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-30px); opacity: 0; }
+}
+
+.slide-left-in {
+  animation: slideLeftIn 1.0s ease both;
+}
+
+.slide-left-out {
+  animation: slideLeftOut 1.0s ease both;
+}
+
+/* ===== Card Slide Up (staggered) ===== */
+@keyframes cardSlideUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.card-slide-up {
+  animation: cardSlideUp 0.6s ease both;
+}
+
+/* ===== Slide In From Right ===== */
+@keyframes slideInRight {
+  0% { transform: translateX(80px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease both;
+}
+
+/* ===== Slide In From Bottom ===== */
+@keyframes slideInBottom {
+  0% { transform: translateY(60px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.slide-in-bottom {
+  animation: slideInBottom 0.8s ease both;
+}
+
+/* ===== Scale In (for star popup) ===== */
+@keyframes scaleIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.scale-in {
+  animation: scaleIn 0.4s ease both;
+}
+
+/* ===== Popup Slide In ===== */
+@keyframes popupSlideIn {
+  0% { transform: translateY(20px) scale(0.95); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===== Hint Pulse ===== */
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+/* ===== Fade In Text (for zone 2 reveal) ===== */
+@keyframes fadeInText {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.fade-in-text {
+  animation: fadeInText 1.5s ease both;
+}
+
+/* ===== Fade In Data Card (for zone 8 cards) ===== */
+@keyframes fadeInDataCard {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Ship Sail (zone 6) ===== */
+@keyframes sailIn {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(0); }
+}
+
+.ship-sail {
+  animation: sailIn 2.5s ease-out both;
+}
+
+/* ===== Reveal line draw (zone 9 banner) ===== */
+@keyframes drawLine {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.draw-line {
+  animation: drawLine 1.5s ease both;
+}
+
+/* ===== Star Twinkle ===== */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.star-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* ===== 大亮星脉冲 ===== */
+@keyframes starPulseBig {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.8); }
+}
+
+/* ===== 星辉出现 ===== */
+@keyframes starAppear {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(180deg); }
+  60% { opacity: 1; transform: translate(-50%, -50%) scale(1.1) rotate(-20deg); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
+/* ===== 光晕脉冲 ===== */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* ===== 标题发光 ===== */
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.25), 0 0 60px rgba(255, 215, 0, 0.08); }
+  50% { text-shadow: 0 0 50px rgba(255, 215, 0, 0.45), 0 0 100px rgba(255, 215, 0, 0.15); }
+}
+
+/* ===== Star Float (zone 10 — 缓慢上下浮动) ===== */
+@keyframes starFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+/* ===== Wave animation (zone 6) ===== */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.wave-move {
+  animation: waveMove 4s ease-in-out infinite;
+}
+
+/* ===== Blood flow animation (zone 8) ===== */
+@keyframes flowUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.flow-up {
+  animation: flowUp 1.2s ease both;
+}
+
+/* ===== 封面页呼吸动画 (opacity 95%-100%) ===== */
+@keyframes breathe {
+  0%, 100% { opacity: 0.95; }
+  50% { opacity: 1; }
+}
+
+/* ===== 信封悬浮动画 ===== */
+@keyframes envelopeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ===== 封面浮动元素动画 ===== */
+@keyframes floatPaper {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-3px) rotate(-0.5deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateY(-12px) rotate(0.5deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes floatStamp {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+    opacity: 0.7;
+  }
+}
+
+/* ===== 滚动提示脉冲动画 ===== */
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+}
+
+/* ===== 浮尘粒子漂浮动画 ===== */
+@keyframes dustFloat {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(30px, -50px);
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(60px, -100px);
+    opacity: 0;
+  }
+}
+
+/* ===== 信封呼吸动画 ===== */
+@keyframes envelopeBreath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ===== CTA 按钮呼吸闪烁 ===== */
+@keyframes ctaBreath {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 4px 16px rgba(165,42,42,0.25);
+  }
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 4px 24px rgba(165,42,42,0.4);
+  }
+}
+
+/* ===== 页面揭示动画 ===== */
+@keyframes pageReveal {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ===== 信封展开动画 ===== */
+@keyframes envelopeShrink {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
